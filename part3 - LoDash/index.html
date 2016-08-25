@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+ 	<title>JS-Mod12</title>
+ 	<link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/lodash.js"></script>
+    <script src="js/script.js"></script>
+</head>
+<body>
+
+  <script type="text/template" id="make_page">
+      <div id="<%=id%>">
+        <div class="<%=clas%>">
+        </div>
+      </div>
+  </script>
+
+
+  <script type="text/template" id="person_object">
+      <div class="<%= clas_person %>">
+          <h2><%= name %></h2>
+          <img src="<%= foto %>">
+      </div>
+  </script>
+
+  <script type="text/template" id="person_skills">
+      <% for (var i = 0; i < skills.length; i++) { %>
+          <div class="<%= skills[i].class %>">
+
+            <% skills[i].text.forEach(function(text) { %>
+              <p class="<%= skills[i].p_class %>"><%= text%></p>
+            <% }); %>
+
+            <% if ((skills[i].a) == '1') { %>
+              <a href="<%= skills[i].a_href %>"><%= skills[i].a_cont %></a>
+            <% }
+
+            if ((skills[i].ul) == '1') { %>
+             <ul>
+               <% skills[i].li.forEach(function(li_cont) { %>
+                <li><%= li_cont %></li>
+               <% }); %>
+             </ul>
+            <% }; %>
+
+          </div>
+      <% }; %>
+  </script>
+
+
+</body>
+</html>

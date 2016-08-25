@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+ 	<title>JS-Mod12</title>
+ 	<link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/tmpl.js"></script>
+    <script src="js/script.js"></script>
+</head>
+<body>
+
+  <script type="text/template" id="make_page">
+      <div id="<%= data[0].id %>">
+        <div class="<%= data[0].class %>">
+        </div>
+      </div>
+  </script>
+
+  <script type="text/template" id="person_object">
+      <div class="<%= data[0].class %>">
+          <h2><%= data[0].name %></h2>
+          <img src="<%= data[0].foto %>">
+      </div>
+  </script>
+
+  <script type="text/template" id="person_skills">
+      <% for (var i = 0; i < data.length; i++) { %>
+          <div class="<%= data[i].class %>">
+
+            <% data[i].text.forEach(function(text) { %>
+              <p class="<%= data[i].p_class %>"><%= text%></p>
+            <% }); %>
+
+            <% if ((data[i].a) == '1') { %>
+              <a href="<%= data[i].a_href %>"><%= data[i].a_cont %></a>
+            <% }
+
+            if ((data[i].ul) == '1') { %>
+             <ul>
+               <% data[i].li.forEach(function(li_cont) { %>
+                <li><%= li_cont %></li>
+               <% }); %>
+             </ul>
+            <% }; %>
+
+          </div>
+      <% }; %>
+  </script>
+
+
+</body>
+</html>
